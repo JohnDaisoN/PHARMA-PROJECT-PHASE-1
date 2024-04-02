@@ -3,7 +3,6 @@ import {Link, NavLink} from 'react-router-dom'
 // import {MdOutlineCancel} from 'react-icons/md'
 import {DASHBOARD_SIDEBAR_LINKS } from "../../lib/const/navigation";
 import { useStateContext } from '../../context/ContextProvider';
-import { FiChrome } from "react-icons/fi";
 import logo from '../../assets/pharmaBiLogo.png'
 const Sidebar = () => {
     const {activeMenu,setActiveMenu,screenSize} = useStateContext();

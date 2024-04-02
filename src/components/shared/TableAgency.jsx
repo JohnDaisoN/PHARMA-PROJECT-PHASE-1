@@ -2,15 +2,16 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 100 },
-  { field: 'agencyName', headerName: 'Stockist', width: 230 },
-  { field: 'description', headerName: 'Description', width: 430 },
+  { field: 'id', headerName: 'ID', width: 100,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500' },
+  { field: 'agencyName', headerName: 'Stockist', width: 230,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500' },
+  { field: 'description', headerName: 'Description', width: 430,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500' },
   {
     field: 'fullName',
     headerName: 'Full name',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
     width: 260,
+    headerClassName:'text-lg text-bold font-sans font-bold text-gray-500',
     valueGetter: (value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
   },
 ];
@@ -27,16 +28,20 @@ const rows = [
   { id: 9, description: 'Roxie', agencyName: 'Harvey', age: 65 },
 ];
 
-export default function DataTable({handleOpen,setFormData}) {
+export default function DataTable({ handleOpen, setFormData }) {
 
-  const handleRowClick = (e)=>{
+  const handleRowClick = (e) => {
     console.log(e.row)
     setFormData(e.row)
     handleOpen()
   }
 
+  const getRowClassName = (params) => {
+    return params.row.id%2 === 1 ? 'bg-blue-100 border-none' : ''; // Use Tailwind CSS utility classes
+  };
+
   return (
-    <div style={{ height:400, width: '100%' }} className='bg-white rounded-2xl'>
+    <div style={{ height: 400, width: '100%' }} className='bg-white rounded-2xl border-none border-white'>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -46,8 +51,8 @@ export default function DataTable({handleOpen,setFormData}) {
           },
         }}
         pageSizeOptions={[5, 10]}
-        // onRowClick={handleOpen}
         onRowClick={handleRowClick}
+        getRowClassName={getRowClassName}
       />
     </div>
   );
