@@ -8,6 +8,7 @@ import "./index.css";
 import DashBoard from "./pages/DashBoard";
 import Products from "./pages/Products";
 import Layout from "./components/shared/Layout";
+import FileUpload from "./pages/FileUpload";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/fileupload",
-        element: <Products />,
+        element: <FileUpload />,
       },
       {
         path: "/analytics",

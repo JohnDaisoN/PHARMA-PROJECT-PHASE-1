@@ -17,15 +17,18 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, description: 'Snow', agencyName: 'Jon', age: 35 },
-  { id: 2, description: 'Lannister', agencyName: 'Cersei', age: 42 },
-  { id: 3, description: 'Lannister', agencyName: 'Jaime', age: 45 },
-  { id: 4, description: 'Stark', agencyName: 'Arya', age: 16 },
-  { id: 5, description: 'Targaryen', agencyName: 'Daenerys', age: null },
-  { id: 6, description: 'Melisandre', agencyName: null, age: 150 },
-  { id: 7, description: 'Clifford', agencyName: 'Ferrara', age: 44 },
-  { id: 8, description: 'Frances', agencyName: 'Rossini', age: 36 },
-  { id: 9, description: 'Roxie', agencyName: 'Harvey', age: 65 },
+  { id: 1, description: 'agency for Balaji', agencyName: 'Balaji', age: 35 },
+  { id: 2, description: 'agency for Elma', agencyName: 'Elma', age: 35 },
+  { id: 3, description: 'agency for Kanmoney', agencyName: 'Kanmoney', age: 35 },
+  { id: 4, description: 'agency for Us Pharma', agencyName: 'Us Pharma', age: 35 },
+  { id: 5, description: 'agency for Jayvi', agencyName: 'Jayvi', age: 35 },
+  { id: 6, description: 'agency for Hind', agencyName: 'Hind', age: 35 },
+  { id: 7, description: 'agency for Star', agencyName: 'Star', age: 35 },
+  { id: 8, description: 'agency for Mayon', agencyName: 'Mayon', age: 35 },
+  { id: 9, description: 'agency for Majestic', agencyName: 'Majestic', age: 35 },
+  { id: 10, description: 'agency for Sheen', agencyName: 'Sheen', age: 35 },
+  { id: 11, description: 'agency for Prabhu and Company', agencyName: 'Prabhu and Company', age: 35 },
+  
 ];
 
 export default function DataTable({ handleOpen, setFormData }) {

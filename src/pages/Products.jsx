@@ -19,14 +19,14 @@ const Products = () => {
   });
 
   //data should be fetched from the server
-  const data = undefined;
+  const data = 10;
 
 
   return (
     <div className = ' h-full w-full flex flex-col p-7'>
       {/* <div className='flex flex-col flex-wrap p-4 pt-3 bg-green-300 rounded-lg overflow-scroll'> */}
       {data?
-       <div className='bg-white p-5 pb-7 flex flex-col gap-4 rounded-2xl drop-shadow-2xl mt-3'>
+       <div className='bg-white p-5 pb-7 flex flex-col gap-4 rounded-2xl drop-shadow-2xl mt-1'>
        <h1 className='text-3xl font-bold font-sans'>PRODUCTS</h1>
        <div className='flex justify-between items-center'>
          <div> search box with down menu</div>

@@ -17,7 +17,7 @@ const DashBoard = () => {
   });
 
   //data should be fetched from the server
-  const data = undefined;
+  const data = 10;
 
 
   return (
