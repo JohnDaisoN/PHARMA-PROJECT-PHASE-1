@@ -2,9 +2,9 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 100 },
-  { field: 'brandName', headerName: 'Brand', width: 230 },
-  { field: 'pts', headerName: 'PTS', width: 430 },
+  { field: 'id', headerName: 'ID', width: 100,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500'},
+  { field: 'brandName', headerName: 'Brand', width: 230,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500'},
+  { field: 'pts', headerName: 'PTS', width: 430,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500'},
   /*{
     field: 'fullName',
     headerName: 'Full name',
@@ -36,8 +36,13 @@ export default function DataTable({handleOpen,setFormData}) {
     handleOpen()
   }
 
+
+  const getRowClassName = (params) => {
+    return params.row.id%2 === 1 ? 'bg-blue-100 border-none' : ''; // Use Tailwind CSS utility classes
+  };
+
   return (
-    <div style={{ height:400, width: '100%' }} className='bg-white rounded-2xl'>
+    <div style={{ height:400, width: '100%' }} className='bg-white rounded-2xl border-none border-white'>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -49,6 +54,7 @@ export default function DataTable({handleOpen,setFormData}) {
         pageSizeOptions={[5, 10]}
         // onRowClick={handleOpen}
         onRowClick={handleRowClick}
+        getRowClassName={getRowClassName}
       />
     </div>
   );
