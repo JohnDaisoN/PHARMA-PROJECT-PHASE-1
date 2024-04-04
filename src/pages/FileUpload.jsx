@@ -1,8 +1,9 @@
 import React from 'react'
+// import Form from '../components/PopupForm'
 
 const FileUpload = () => {
   return (
-    <div>FileUpload</div>
+    <div>fileUpload</div>
   )
 }
 
