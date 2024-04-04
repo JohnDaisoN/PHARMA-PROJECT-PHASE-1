@@ -3,7 +3,13 @@ import React from 'react'
 
 const FileUpload = () => {
   return (
-    <div>fileUpload</div>
+    <main>
+    <div className="fixed top-0 left-0 p-4 bg-white text-blue-500 font-bold tracking-wider">
+  File Upload
+</div>
+
+    
+    </main>
   )
 }
 
