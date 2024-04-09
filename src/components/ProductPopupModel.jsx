@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 // import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Form from './ProductPopupForm';
 
 const style = {
   position: 'absolute',
@@ -18,7 +19,7 @@ const style = {
   fontFamily: 'Arial, sans-serif',
 };
 
-export default function BasicModal({open,handleClose,formData}) {
+export default function BasicModal({open,handleClose,formData,fetchData}) {
 //   const [open, setOpen] = React.useState(false);
 //   const handleOpen = () => setOpen(true);
 //   const handleClose = () => setOpen(false);
@@ -33,7 +34,7 @@ export default function BasicModal({open,handleClose,formData}) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+         {/* { <Typography id="modal-modal-title" variant="h6" component="h2"> 
             BRAND :{formData.brandName}
           </Typography>
           <Typography id="modal-modal-division" sx={{ mt: 2 }}>
@@ -47,7 +48,9 @@ export default function BasicModal({open,handleClose,formData}) {
           </Typography>
           <Typography id="modal-modal-mrp" sx={{ mt: 2 }}>
             MRP :{formData.mrp}
-          </Typography>
+          </Typography> */}
+          <Form formData = {formData} fetchData = {fetchData}/>
+
         </Box>
       </Modal>
     </div>
