@@ -2,17 +2,18 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: '_id', headerName: 'ID', width: 100,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500'},
-  { field: 'brandName', headerName: 'Brand', width: 230,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500'},
-  { field: 'pts', headerName: 'PTS', width: 430,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500'},
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 260,
-    valueGetter: (value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
-  },
+  // { field: '_id', headerName: 'ID', width: 100,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500'},
+  { field: 'brandName', headerName: 'Brand', width: 430,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500'},
+  { field: 'division', headerName: 'Division', width: 430,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500'},
+  { field: 'pts', headerName: 'PTS', width: 230,headerClassName:'text-lg text-bold font-sans font-bold text-gray-500'},
+  // {
+  //   field: 'fullName',
+  //   headerName: 'Full name',
+  //   description: 'This column has a value getter and is not sortable.',
+  //   sortable: false,
+  //   width: 260,
+  //   valueGetter: (value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
+  // },
 ];
 
 // const rows = [
@@ -61,7 +62,7 @@ export default function DataTable({handleOpen,setFormData,data}) {
         getRowId={(row) => row._id}
         initialState={{
           pagination: {
-            paginationModel: { page: 0, pageSize: 10 },
+            paginationModel: { page: 0, pageSize: 5 },
           },
         }}
         pageSizeOptions={[5, 10]}

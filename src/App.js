@@ -9,6 +9,7 @@ import DashBoard from "./pages/DashBoard";
 import Products from "./pages/Products";
 import Layout from "./components/shared/Layout";
 import FileUpload from "./pages/FileUpload";
+import Representatives from "./pages/Representatives";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/fileupload",
         element: <FileUpload />,
+      },
+      {
+        path: "/representatives",
+        element: <Representatives />,
       },
       {
         path: "/analytics",

@@ -3,6 +3,7 @@ import BasicModal from '../components/ProductPopupModel'
 import DataTable from '../components/shared/TableProduct';
 import Variants from '../components/skeletons/ProductSkeleton';
 import { Button } from '@mui/material'
+import { Formadd } from '../components/components';
 
 const Products = () => {
   const [open, setOpen] = React.useState(false);
@@ -41,7 +42,9 @@ const Products = () => {
     fetchData();
   }, []); // Empty dependency array means this effect runs once on component mount
 
-
+  const AddButton = ({ fetchData }) => {
+    <Formadd formData = {formData} fetchData = {fetchData}/>
+  }
 
 
   return (
@@ -56,7 +59,7 @@ const Products = () => {
          
           {/* <Form fetchData={fetchData} /> */}
         <div className='flex justify-between'>
-          <Button variant="contained" color="primary">Add</Button>
+          <Button variant="contained" color="primary" onClick={AddButton}>Add</Button>
           
         </div>
        </div>

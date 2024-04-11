@@ -1,6 +1,6 @@
 import boxArrowRight from '../../assets/box-arrow-right.svg';
 import gear from '../../assets/gear.svg';
-import { BiHome, BiBarChartAlt2,BiCategoryAlt,BiCloudUpload,BiPieChartAlt2 } from "react-icons/bi";
+import { BiHome, BiBarChartAlt2,BiCategoryAlt,BiCloudUpload,BiPieChartAlt2,BiSolidBriefcase } from "react-icons/bi";
 
 
 
@@ -23,6 +23,12 @@ export const DASHBOARD_SIDEBAR_LINKS =[
         label: "File Upload",
         path: "/fileupload",
         icon:<BiCloudUpload/>
+    },
+    {
+        key: "Representatives",
+        label: "Representatives",
+        path: "/representatives",
+        icon:<BiSolidBriefcase/>
     },
     {
         key: "analytics",

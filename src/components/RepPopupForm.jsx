@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { TextField, Button, Grid, Paper } from '@mui/material';
 
-
 const Form = ({formData, fetchData}) => {
     console.log(formData)
   const [data, setData] = useState({
-    brandName: formData.brandName,
-    pts: formData.pts,
+    name: formData.name,
+    jobTitle: formData.jobTitle,
     id: formData._id,
-    division: formData.division,
-    pack: formData.pack,
-    ptr: formData.ptr,
-    mrp: formData.mrp,
+    supervisor: formData.supervisor,
+    doj: formData.doj,
+    dor: formData.dor,
     createdOn: formData.createdOn,
     modifiedOn: formData.modifiedOn
   });
@@ -32,7 +30,7 @@ const Form = ({formData, fetchData}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:3000/products/${data.id}`, {
+      const response = await fetch(`http://localhost:3000/representative/${data.id}`, {
         method: 'PUT', // or 'POST' if applicable
         headers: {
           'Content-Type': 'application/json',
@@ -49,16 +47,15 @@ const Form = ({formData, fetchData}) => {
       console.error('Error submitting form data:', error);
     }
   };
-
   const handleDelete = async (id) => {
-    const confirmed = window.confirm('Are you sure you want to delete this product?');
+    const confirmed = window.confirm('Are you sure you want to delete this representative?');
 
   if (!confirmed) {
     return; // If user cancels, do not proceed with deletion
   }
     try {
       // Make a DELETE request to your API endpoint
-      const response = await fetch(`http://localhost:3000/products/${data.id}`, {
+      const response = await fetch(`http://localhost:3000/representative/${data.id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +84,6 @@ const Form = ({formData, fetchData}) => {
       // Handle error scenarios, such as showing an error message to the user
     }
   };
-  
 
   return (
     <Grid container justifyContent="center" className=''>
@@ -98,60 +94,50 @@ const Form = ({formData, fetchData}) => {
               <TextField
                 fullWidth
                 margin="normal"
-                label="Brand Name"
-                id="brandName"
-                name="brandName"
-                value={data.brandName}
+                label="Representative Name"
+                id="name"
+                name="name"
+                value={data.name}
                 onChange={handleChange}
                 required
               />
               <TextField
                 fullWidth
                 margin="normal"
-                label="Division"
-                id="division"
-                name="division"
-                value={data.division}
+                label="Job Title"
+                id="jobTitle"
+                name="jobTitle"
+                value={data.jobTitle}
                 onChange={handleChange}
                 required
               />
               <TextField
                 fullWidth
                 margin="normal"
-                label="Pack"
-                id="pack"
-                name="pack"
-                value={data.pack}
+                label="Supervisor"
+                id="supervisor"
+                name="supervisor"
+                value={data.supervisor}
                 onChange={handleChange}
                 required
               />
               <TextField
                 fullWidth
                 margin="normal"
-                label="PTS"
-                id="pts"
-                name="pts"
-                value={data.pts}
+                label="Date of Join"
+                id="doj"
+                name="doj"
+                value={data.doj}
                 onChange={handleChange}
                 required
               />
               <TextField
                 fullWidth
                 margin="normal"
-                label="PTR"
-                id="ptr"
-                name="ptr"
-                value={data.ptr}
-                onChange={handleChange}
-                required
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="MRP"
-                id="mrp"
-                name="mrp"
-                value={data.mrp}
+                label="Date of Resign"
+                id="dor"
+                name="dor"
+                value={data.dor}
                 onChange={handleChange}
                 required
               />
@@ -175,53 +161,46 @@ const Form = ({formData, fetchData}) => {
                 onChange={handleChange}
                 required
               />
-           
               <Button variant="contained" color="primary" type="submit">
                 Submit
               </Button>
+              
             </form>
           ) : (
             <div>
               <TextField
                 fullWidth
                 margin="normal"
-                label="Brand Name"
-                value={data.brandName}
+                label="Representative Name"
+                value={data.name}
                 InputProps={{ readOnly: true }}
               />
               <TextField
                 fullWidth
                 margin="normal"
-                label="Division"
-                value={data.division}
+                label="Job Title"
+                value={data.jobTitle}
                 InputProps={{ readOnly: true }}
               />
               <TextField
                 fullWidth
                 margin="normal"
-                label="Pack"
-                value={data.pack}
+                label="Supervisor"
+                value={data.supervisor}
                 InputProps={{ readOnly: true }}
               />
               <TextField
                 fullWidth
                 margin="normal"
-                label="PTS"
-                value={data.pts}
+                label="Date of Join"
+                value={data.doj}
                 InputProps={{ readOnly: true }}
               />
               <TextField
                 fullWidth
                 margin="normal"
-                label="PTR"
-                value={data.ptr}
-                InputProps={{ readOnly: true }}
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="MRP"
-                value={data.mrp}
+                label="Date of Resign"
+                value={data.dor}
                 InputProps={{ readOnly: true }}
               />
               <TextField
@@ -232,20 +211,20 @@ const Form = ({formData, fetchData}) => {
                 InputProps={{ readOnly: true }}
               />
               <TextField
-              fullWidth
-              margin="normal"
-              label="Modified On"
-              value={data.modifiedOn}
-              InputProps={{ readOnly: true }}
-            />
+                fullWidth
+                margin="normal"
+                label="Modified On"
+                value={data.modifiedOn}
+                InputProps={{ readOnly: true }}
+              />
               
               <div className='flex justify-between'>
-              <Button variant="contained" color="primary" onClick={handleEdit}>
-                Edit
-              </Button>
-              <Button variant="contained" color="primary" onClick={handleDelete}>
-                Delete
-              </Button>
+                <Button variant="contained" color="primary" onClick={handleEdit}>
+                    Edit
+                </Button>
+                <Button variant="contained" color="primary" onClick={handleDelete}>
+                    Delete
+                </Button>
               </div>
             </div>
           )}
